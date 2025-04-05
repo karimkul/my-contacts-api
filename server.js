@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const errorHandler = require("./middleware/errorHandler");
 const connectDb = require("./config/dbConnection");
 const dotenv = require("dotenv").config();
@@ -10,6 +9,7 @@ const port = process.env.PORT || 8000; // Default to 8000 if PORT is not set in 
 
 app.use(express.json());
 app.use("/api/contacts", require("./routes/contactRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
